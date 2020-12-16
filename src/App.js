@@ -34,17 +34,18 @@ function App() {
       });
     };
 
-  const submitHandler =(text) => {
-    setTodos((previousTodos) => {
-      if (text =="") {
+  const addNoteToList =(text) => {
+    if (text =="") {
         console.log('empty');
-      } else {
+        return 0;
+      }
+    setTodos((previousTodos) => {
         return [
         { text:text,key:Math.random().toString()},
         ...previousTodos
       ]
       }
-    })
+    )
   }
   // function addNoteToList(item) {
   //   setNoteList([...notes, item]);
@@ -79,7 +80,7 @@ function App() {
         </TouchableOpacity>
         </View> */}
         <View style={styles.AddTo}>
-        <AddTodo submitHandler={submitHandler}/>
+        <AddTodo addNoteToList={addNoteToList}/>
         </View>
       </View>
     </SafeAreaView>

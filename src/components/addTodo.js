@@ -10,7 +10,7 @@
 import React,{useState} from "react";
 import {View, Button, TextInput, StyleSheet} from "react-native";
 
-function AddTodo({submitHandler}) {
+function AddTodo({addNoteToList}) {
     const [text,setText] = useState('');
 
     const changeHandler = (val) =>{
@@ -23,7 +23,7 @@ function AddTodo({submitHandler}) {
         placeholder='Add something to do' 
         onChangeText={changeHandler}
       />    
-      <Button style={styles.textColor} onPress={()=>submitHandler(text)} title="ADD TODO"/>
+      <Button style={styles.textColor} onPress={()=>addNoteToList(text)} title="ADD TODO"/>
     </View>
   );
 }
