@@ -49,7 +49,7 @@ function App() {
       }
     setTodos((previousTodos) => {
         return [
-        { text:text,key:Math.random().toString(),checked:false},
+        { text:text,key:Math.random().toString(),isDone:false},
         ...previousTodos
       ]
       }
@@ -61,7 +61,7 @@ function App() {
   const toggleCheckedTodo = (key) => {
     setTodos(
       todos.map((todo) =>
-        todo.key === key ? { ...todo, checked:!todo.checked } : todo,
+        todo.key === key ? { ...todo, isDone:!todo.isDone } : todo,
       ),
     );
   };
@@ -73,7 +73,8 @@ function App() {
       <View style={styles.container}>
         <View style={styles.countContainer}>
           <Label label="TODO" textColor="textColor"/>
-          <Text textColor="textColor">{counter}</Text>
+          <Label label={counter} textColor="textColor"/>
+
         </View>
 
       <View style={styles.list}>

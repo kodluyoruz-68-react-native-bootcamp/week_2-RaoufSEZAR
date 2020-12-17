@@ -8,11 +8,10 @@ import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, FlatList, View, SafeAreaView } from "react-native";
 
 function TodoItem({item,handlerLongClick,onCheckButtonClickHandler}) {
-
     return (
-        <TouchableOpacity testID="button" style={styles[item.checked ? 'throughOpacity' : 'Opacity']}
+        <TouchableOpacity testID="button" style={styles[item.isDone ? 'throughOpacity' : 'Opacity']}
         onLongPress={()=>handlerLongClick(item.key)} onPress={onCheckButtonClickHandler(item.key)}>
-             <Text style={styles[item.checked ? 'throughText' : 'text']}>{item.text}</Text>
+            <Text style={styles[item.isDone ? 'throughText' : 'text']}>{item.text}</Text>
         </TouchableOpacity>
     );
 }
