@@ -16,22 +16,13 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
-import { StyleSheet,FlatList, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet,FlatList, View, SafeAreaView } from "react-native";
 import AddTodo from './components/addTodo';
 import TodoItem from './components/todoItem';
 import Label from './components/Label';
-/**
- * TextInput: testID="input" (component which is user types the todo text)
- * TouchableOpacity: testID="button" (component which is saves the todo to list)
- * FlatList: testID="list" (list of todo)
- */
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const onPress = () => {
-    setCounter(previousCount =>previousCount + 1);};
-
-  // const notes=[{id:Math.random().toString(),text:"somthing"}];
   const [todos, setTodos] = useState([]);
 
   const handlerLongClick = (key)=>{
@@ -116,7 +107,7 @@ const styles = StyleSheet.create({
   list:{
     flex: 7,
     padding: 10,
-   },
+  },
 });
 
 

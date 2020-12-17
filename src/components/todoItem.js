@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         margin: 5,
     },
-  throughOpacity: {
+    throughOpacity: {
         borderRadius: 10,
         padding: 10,
         margin: 5,

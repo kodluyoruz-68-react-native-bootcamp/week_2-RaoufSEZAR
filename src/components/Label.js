@@ -13,8 +13,6 @@ import {View,StyleSheet,TouchableOpacity, Text} from "react-native";
 
 
 const Label = (props)=> {
-    // const [counter, setCounter] = useState(0);
-    // const onPress = () => setCounter(previousCount => previousCount + 1);
     return (
         <TouchableOpacity style={styles[props.theme]}
             onPress={props.onPress}>

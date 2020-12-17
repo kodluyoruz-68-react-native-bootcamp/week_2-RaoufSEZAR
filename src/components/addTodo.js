@@ -14,8 +14,6 @@ import {View, Text, Keyboard, TouchableOpacity, TextInput, StyleSheet} from "rea
 
 function AddTodo({addNoteToList,counter}) {
     const [text,setText] = useState('');
-    // const [newValue,setNewValue] = useState('');
-
     const changeHandler = (val) =>{
         setText(val);
     };
@@ -32,7 +30,6 @@ function AddTodo({addNoteToList,counter}) {
         onChangeText={changeHandler}
         value={text}
       />    
-      {/* onPress={()=>addNoteToList(text)} */}
       <TouchableOpacity testID="button" onPress={add_To_do}>
         <Text style={styles.textColor}>ADD TO DO</Text>
       </TouchableOpacity>
