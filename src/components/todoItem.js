@@ -12,12 +12,12 @@ function TodoItem({item,handlerLongClick,onCheckButtonClickHandler}) {
     return (
         <TouchableOpacity testID="button" style={styles[item.checked ? 'throughOpacity' : 'Opacity']}
         onLongPress={()=>handlerLongClick(item.key)} onPress={onCheckButtonClickHandler(item.key)}>
-            <Text style={styles[item.checked ? 'throughText' : 'text']}>{item.text}</Text>
+             <Text style={styles[item.checked ? 'throughText' : 'text']}>{item.text}</Text>
         </TouchableOpacity>
     );
 }
 
-export {TodoItem};
+export default TodoItem;
 
 const styles = StyleSheet.create({
     text:{

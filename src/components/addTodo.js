@@ -10,7 +10,7 @@
 import React,{useState,useEffect} from "react";
 import {View, Button, TextInput, StyleSheet} from "react-native";
 
-function AddTodo({addNoteToList}) {
+function AddTodo({addNoteToList,counter}) {
     const [text,setText] = useState('');
 
     const changeHandler = (val) =>{
@@ -24,13 +24,13 @@ function AddTodo({addNoteToList}) {
         placeholder='Add something to do' 
         onChangeText={changeHandler}
       />    
-      <Button style={styles.textColor} onPress={()=>addNoteToList(text)} 
+      <Button style={styles.textColor} color='#dcbbde' onPress={()=>addNoteToList(text)} 
       title="ADD TODO"/>
     </View>
   );
 }
 
-export {AddTodo};
+export default AddTodo;
 
 const styles = StyleSheet.create({
   InputContainer: {
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   textColor:{
-      backgroundColor: '#713975',
-    color:'#713975',
     fontWeight: 'bold',
     fontSize: 30,
 },

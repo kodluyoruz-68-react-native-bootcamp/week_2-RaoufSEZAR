@@ -17,14 +17,14 @@ const Label = (props)=> {
     // const onPress = () => setCounter(previousCount => previousCount + 1);
     return (
         <TouchableOpacity style={styles[props.theme]}
-            onPress={props.onPress} testID={props.testID}>
+            onPress={props.onPress}>
             <Text style={styles[props.textColor]}
-                onPress={props.onPress} onClick={props.onClick}>{props.label}{props.counter} </Text>
+                onClick={props.onClick}>{props.label}{props.counter} </Text>
         </TouchableOpacity>
     );
 };
 
-export {Label};
+export default Label;
 
 const styles = StyleSheet.create({
 text:{

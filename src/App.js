@@ -16,8 +16,10 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
-import { StyleSheet,FlatList, View, SafeAreaView } from "react-native";
-import {Label,AddTodo,TodoItem} from './components/index';
+import { StyleSheet,FlatList, Text, View, SafeAreaView } from "react-native";
+import AddTodo from './components/addTodo';
+import TodoItem from './components/todoItem';
+import Label from './components/Label';
 /**
  * TextInput: testID="input" (component which is user types the todo text)
  * TouchableOpacity: testID="button" (component which is saves the todo to list)
@@ -27,15 +29,17 @@ import {Label,AddTodo,TodoItem} from './components/index';
 function App() {
   const [counter, setCounter] = useState(0);
   const onPress = () => {
-    setCounter(previousCount => previousCount + 1);};
+    setCounter(previousCount =>previousCount + 1);};
 
   // const notes=[{id:Math.random().toString(),text:"somthing"}];
   const [todos, setTodos] = useState([]);
 
   const handlerLongClick = (key)=>{
       setTodos((previousTodos)=>{
+
         return previousTodos.filter(todo=>todo.key != key)
       });
+      setCounter(counter-1);
     };
 
   const addNoteToList =(text) => {
@@ -50,15 +54,8 @@ function App() {
       ]
       }
     );
+    setCounter(counter+1);
   }
-  //   const onToggle = (id) => (e) => {
-  //   setTodos(
-  //     todoList.map((todo) =>
-  //       todo.id === id ? {...todo, isDone: !todo.isDone} : todo,
-  //     ),
-  //   );
-  //   console.log(todoList);
-  // };
 
 
   const toggleCheckedTodo = (key) => {
@@ -76,7 +73,7 @@ function App() {
       <View style={styles.container}>
         <View style={styles.countContainer}>
           <Label label="TODO" textColor="textColor"/>
-          <Label counter={counter} textColor="textColor"/>
+          <Text textColor="textColor">{counter}</Text>
         </View>
 
       <View style={styles.list}>
@@ -86,7 +83,7 @@ function App() {
         }/>
       </View>
         <View style={styles.AddTo}>
-        <AddTodo addNoteToList={addNoteToList}/>
+            <AddTodo counter={counter} addNoteToList={addNoteToList}/>
         </View>
       </View>
     </SafeAreaView>
