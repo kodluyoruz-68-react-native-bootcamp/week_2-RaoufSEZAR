@@ -7,7 +7,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {View, Button, TextInput, StyleSheet} from "react-native";
 
 function AddTodo({addNoteToList}) {
@@ -16,14 +16,16 @@ function AddTodo({addNoteToList}) {
     const changeHandler = (val) =>{
         setText(val);
     };
+
   return (
     <View>
-      <TextInput
+      <TextInput testID="input"
         style={styles.InputContainer} 
         placeholder='Add something to do' 
         onChangeText={changeHandler}
       />    
-      <Button style={styles.textColor} onPress={()=>addNoteToList(text)} title="ADD TODO"/>
+      <Button style={styles.textColor} onPress={()=>addNoteToList(text)} 
+      title="ADD TODO"/>
     </View>
   );
 }

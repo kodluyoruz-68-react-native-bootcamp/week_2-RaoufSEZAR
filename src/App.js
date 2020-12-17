@@ -1,4 +1,7 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-labels */
+/* eslint-disable no-label-var */
+/* eslint-disable prettier/prettier */
 /* eslint-disable comma-dangle */
 /* eslint-disable prettier/prettier */
 /* eslint-disable eqeqeq */
@@ -13,7 +16,7 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, FlatList, View, SafeAreaView } from "react-native";
+import { StyleSheet,FlatList, View, SafeAreaView } from "react-native";
 import {Label,AddTodo,TodoItem} from './components/index';
 /**
  * TextInput: testID="input" (component which is user types the todo text)
@@ -28,6 +31,7 @@ function App() {
 
   // const notes=[{id:Math.random().toString(),text:"somthing"}];
   const [todos, setTodos] = useState([]);
+
   const handlerLongClick = (key)=>{
       setTodos((previousTodos)=>{
         return previousTodos.filter(todo=>todo.key != key)
@@ -41,20 +45,33 @@ function App() {
       }
     setTodos((previousTodos) => {
         return [
-        { text:text,key:Math.random().toString()},
+        { text:text,key:Math.random().toString(),checked:false},
         ...previousTodos
       ]
       }
-    )
+    );
   }
-  // function addNoteToList(item) {
-  //   setNoteList([...notes, item]);
-  // }
-  // const renderNotes = ({item}) => (
-  //   <Label onClick={addNoteToList} />
-  // );
-  return (
+  //   const onToggle = (id) => (e) => {
+  //   setTodos(
+  //     todoList.map((todo) =>
+  //       todo.id === id ? {...todo, isDone: !todo.isDone} : todo,
+  //     ),
+  //   );
+  //   console.log(todoList);
+  // };
 
+
+  const toggleCheckedTodo = (key) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.key === key ? { ...todo, checked:!todo.checked } : todo,
+      ),
+    );
+  };
+  const onCheckButtonClickHandler = (key) => (e) => {
+      toggleCheckedTodo(key);
+  }
+  return (
     <SafeAreaView style={{flex: 1,backgroundColor: '#dcbbde'}}>
       <View style={styles.container}>
         <View style={styles.countContainer}>
@@ -65,20 +82,9 @@ function App() {
       <View style={styles.list}>
         <FlatList testID="list" data={todos} keyExtractor={(item, index) => item.key}
         renderItem={({item})=>
-        (<TodoItem item={item} handlerLongClick={handlerLongClick}/>)
+        (<TodoItem item={item} handlerLongClick={handlerLongClick} onCheckButtonClickHandler={onCheckButtonClickHandler}/>)
         }/>
       </View>
-        {/* <View style={styles.AddTo}>
-        <Input placeholder="type something to do"/>
-
-        <TouchableOpacity testID="button"
-          style={styles.button}
-          onPress={onPress}
-        >
-          <Label label="ADD TODO "
-          onPress={onPress}/>
-        </TouchableOpacity>
-        </View> */}
         <View style={styles.AddTo}>
         <AddTodo addNoteToList={addNoteToList}/>
         </View>

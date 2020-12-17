@@ -1,24 +1,25 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, FlatList, View, SafeAreaView } from "react-native";
 
-function TodoItem({item,handlerLongClick}) {
+function TodoItem({item,handlerLongClick,onCheckButtonClickHandler}) {
 
-    return(
-        <TouchableOpacity onLongPress={()=>handlerLongClick(item.key)}>
-        {/* onPress={handlerClick} */}
-
-            <Text style={styles.text}>{item.text}</Text>
+    return (
+        <TouchableOpacity testID="button" style={styles[item.checked ? 'throughOpacity' : 'Opacity']}
+        onLongPress={()=>handlerLongClick(item.key)} onPress={onCheckButtonClickHandler(item.key)}>
+            <Text style={styles[item.checked ? 'throughText' : 'text']}>{item.text}</Text>
         </TouchableOpacity>
-    )
+    );
 }
 
 export {TodoItem};
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     text:{
         marginTop: 16,
         borderWidth:1,
@@ -30,5 +31,18 @@ const styles=StyleSheet.create({
         textAlign:'center',
         color:"white",
         fontWeight: 'bold',
+    },
+    throughText: {
+        textDecorationLine: 'line-through',
+        backgroundColor: "#713975",
+    },
+    Opacity: {
+        borderRadius: 10,
+        margin: 5,
+    },
+  throughOpacity: {
+        borderRadius: 10,
+        padding: 10,
+        margin: 5,
     },
 });
