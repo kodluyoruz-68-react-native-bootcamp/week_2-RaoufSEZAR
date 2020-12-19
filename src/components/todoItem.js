@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-
+/* eslint-disable quotes */
+/* eslint-disable prettier/prettier */
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, FlatList, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, TouchableOpacity} from "react-native";
 
 function TodoItem({item,handlerLongClick,onCheckButtonClickHandler}) {
     return (
