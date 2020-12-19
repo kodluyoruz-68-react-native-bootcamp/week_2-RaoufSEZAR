@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React,{useState} from 'react';
-import {View,StyleSheet,TouchableOpacity, Text} from "react-native";
+import React from 'react';
+import {StyleSheet,TouchableOpacity, Text} from "react-native";
 
 const Label = (props)=> {
     return (

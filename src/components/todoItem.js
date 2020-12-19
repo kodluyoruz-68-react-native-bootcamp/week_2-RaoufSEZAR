@@ -1,10 +1,6 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
-/* eslint-disable quotes */
-/* eslint-disable prettier/prettier */
-import React, { useState } from "react";
+
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, FlatList, View, SafeAreaView } from "react-native";
 
 function TodoItem({item,handlerLongClick,onCheckButtonClickHandler}) {
