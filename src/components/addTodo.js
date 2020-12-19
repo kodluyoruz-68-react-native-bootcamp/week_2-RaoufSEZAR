@@ -9,8 +9,9 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import {View, Text, Keyboard, TouchableOpacity, TextInput, StyleSheet} from "react-native";
+
 
 function AddTodo({addNoteToList,counter}) {
     const [text,setText] = useState('');

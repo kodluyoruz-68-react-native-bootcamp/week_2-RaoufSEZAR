@@ -1,22 +1,8 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-labels */
-/* eslint-disable no-label-var */
-/* eslint-disable prettier/prettier */
-/* eslint-disable comma-dangle */
-/* eslint-disable prettier/prettier */
-/* eslint-disable eqeqeq */
-/* eslint-disable prettier/prettier */
-/* eslint-disable semi */
-/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable space-infix-ops */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-extra-semi */
-/* eslint-disable prettier/prettier */
-/* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
-import { StyleSheet,FlatList, View, SafeAreaView } from "react-native";
+import { StyleSheet,FlatList, View, SafeAreaView, Alert} from "react-native";
 import AddTodo from './components/addTodo';
 import TodoItem from './components/todoItem';
 import Label from './components/Label';
@@ -34,7 +20,8 @@ function App() {
     };
 
   const addNoteToList =(text) => {
-    if (text =="") {
+    if (text == "") {
+        Alert.alert('Attension','Empty,make sure its not empty',[{text:'Understood', onPress:()=>console.log('close the alert') }])
         console.log('empty');
         return 0;
       }
@@ -45,8 +32,8 @@ function App() {
       ]
       }
     );
-    setCounter(counter+1);
-  }
+    setCounter(counter + 1);
+  };
 
 
   const toggleCheckedTodo = (key) => {
